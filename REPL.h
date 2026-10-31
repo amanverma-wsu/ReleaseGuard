@@ -107,6 +107,7 @@ void manageRelease(release &entry){
             bug b;
             std::cout << "Title: ";       std::getline(std::cin, b.title);
             std::cout << "Severity (Critical/Major/Minor): "; std::getline(std::cin, b.severity);
+            std::cout << "Assignee: "; std::getline(std::cin, b.assignee);
             b.resolved = false;
             entry.addBug(b);
             std::cout << "Bug added.\n";
@@ -132,7 +133,8 @@ void manageRelease(release &entry){
             std::cout << "Bugs:\n";
             for(size_t i=0;i<bs.size();i++)
                 std::cout << "  [" << i << "] " << bs[i].title << " (" << bs[i].severity
-                          << ") " << (bs[i].resolved ? "resolved" : "open") << "\n";
+                          << ", " << bs[i].assignee << ") "
+                          << (bs[i].resolved ? "resolved" : "open") << "\n";
             std::cout << "Tests:\n";
             for(size_t i=0;i<ts.size();i++)
                 std::cout << "  [" << i << "] " << ts[i].name << " "

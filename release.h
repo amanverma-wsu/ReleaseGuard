@@ -13,6 +13,7 @@ class bug {
 public:
     std::string title;
     std::string severity;   // "Critical", "Major", or "Minor"
+    std::string assignee;
     bool resolved;
 };
 
